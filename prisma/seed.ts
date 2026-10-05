@@ -16,21 +16,21 @@ const TESTNET_PUBKEYS = {
 async function main() {
   // Upsert users
   const alice = await prisma.user.upsert({
-    where: { email: 'alice@ding.test' },
+    where: { email: 'alice@vela.test' },
     update: {},
     create: {
       supabaseUserId: 'supabase-alice-000',
-      email: 'alice@ding.test',
+      email: 'alice@vela.test',
       displayName: 'Alice (Receiver)',
     },
   });
 
   const bob = await prisma.user.upsert({
-    where: { email: 'bob@ding.test' },
+    where: { email: 'bob@vela.test' },
     update: {},
     create: {
       supabaseUserId: 'supabase-bob-000',
-      email: 'bob@ding.test',
+      email: 'bob@vela.test',
       displayName: 'Bob (Sender)',
     },
   });
@@ -86,7 +86,7 @@ async function main() {
   });
 
   console.log(
-    'eed complete — alice@ding.test (receiver), bob@ding.test (sender)',
+    'Seed complete — alice@vela.test (receiver), bob@vela.test (sender)',
   );
 }
 

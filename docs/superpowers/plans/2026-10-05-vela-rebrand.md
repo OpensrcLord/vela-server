@@ -14,7 +14,7 @@
 
 **Files:** Mobile README, Expo config, package metadata, in-app welcome and passkey display copy, current product/auth/NFC docs.
 
-- [x] Replace user-facing Ding branding with Vela.
+- [x] Replace user-facing old branding with Vela.
 - [x] Set app display name to `Vela`, Expo slug and npm package name to `vela-payments`.
 - [x] Preserve stable identifiers for installed clients and passkeys.
 - [x] Check remaining brand references and review the diff.

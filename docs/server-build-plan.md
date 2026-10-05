@@ -1,13 +1,13 @@
 # Vela — Server Build Plan
 
-> **Master implementation document for the backend (`ding-server`)**
+> **Master implementation document for the backend (`vela-server`)**
 >
 > Version: 1.0 · Date: 2026-06-17 · Scope: server MVP
 >
 > **Required references:**
-> - [ding-payments.md](./ding-payments.md) — product vision and UX flows
+> - [vela-overview.md](./vela-overview.md) — product vision and UX flows
 > - [payment-request.v1.md](./payment-request.v1.md) — canonical NFC contract (restore in SRV-031)
-> - Client repo: `ding-payments/` — has its own task plan; **this document is server-only**
+> - Client repo: `vela-payments/` — has its own task plan; **this document is server-only**
 
 ---
 
@@ -37,7 +37,7 @@ Use it to:
 - Split work into epics, sprints, and tickets
 - Assign priorities and detect blockers
 - Onboard AI agents with full context
-- Coordinate integration with the client plan (`ding-payments`)
+- Coordinate integration with the client plan (`vela-payments`)
 
 ### Identifier conventions
 
@@ -84,7 +84,7 @@ Each task in Section 8 follows this structure:
 **Files** — exact create/modify paths
 **Implementation** — steps and snippets
 **Tests** — what to test and commands
-**Client dependency** — what must exist in ding-payments
+**Client dependency** — what must exist in vela-payments
 **Notes for agents** — pitfalls, skills, git references
 ```
 
@@ -104,7 +104,7 @@ Each task in Section 8 follows this structure:
 1. **Hybrid auth:** Supabase JWT for session/login + server-side WebAuthn for payment approval
 2. **Transaction relay:** The client signs the XDR locally; the server receives the signed XDR, validates, broadcasts to Stellar, and monitors confirmation
 3. **Self-custodial:** Private keys never leave the device; the server never custodies funds
-4. **NFC contract:** `payment-request.v1` is the official contract (not the simplified payload from ding-payments.md)
+4. **NFC contract:** `payment-request.v1` is the official contract (not the simplified payload from vela-overview.md)
 
 ```mermaid
 sequenceDiagram
@@ -135,7 +135,7 @@ sequenceDiagram
 
 Vela enables instant P2P payments via NFC on Stellar. The experience should feel like Apple Pay / Google Pay, but with a self-custodial wallet and passkeys. Blockchain complexity is invisible to the user.
 
-Source: [ding-payments.md](./ding-payments.md)
+Source: [vela-overview.md](./vela-overview.md)
 
 ### Receiver flow (client — context for the server)
 
@@ -166,7 +166,7 @@ Source: [ding-payments.md](./ding-payments.md)
 
 ### Server vs client boundary
 
-| Responsibility | Server | Client (`ding-payments`) |
+| Responsibility | Server | Client (`vela-payments`) |
 |-----------------|----------|---------------------------|
 | NFC handshake | — | Yes |
 | Create NFC payload | — | Yes (receiver) |
@@ -237,13 +237,13 @@ Source: [ding-payments.md](./ding-payments.md)
 ### Target folder structure
 
 ```
-ding-server/
+vela-server/
 ├── prisma/
 │   ├── schema.prisma
 │   ├── seed.ts
 │   └── migrations/
 ├── docs/
-│   ├── ding-payments.md
+│   ├── vela-overview.md
 │   ├── payment-request.v1.md
 │   ├── server-build-plan.md          # this file
 │   ├── ARCHITECTURE.md               # SRV-095
@@ -862,7 +862,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-002 — Create .env.example with all variables
@@ -894,7 +894,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-003 — Install core server dependencies
@@ -926,7 +926,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-004 — Configure ConfigModule and env validation
@@ -958,7 +958,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-005 — Bootstrap production-ready main.ts
@@ -990,7 +990,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-006 — Global exception filter and error format
@@ -1022,7 +1022,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-007 — Base src/ folder structure
@@ -1054,7 +1054,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-008 — Update .cursor/rules to flat layout
@@ -1086,7 +1086,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 1 — Database and persistence (EPIC-01)
@@ -1123,7 +1123,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-010 — Initial Prisma schema User and Wallet
@@ -1155,7 +1155,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-011 — DatabaseModule and PrismaService
@@ -1187,7 +1187,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-012 — Initial database migration
@@ -1219,7 +1219,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-013 — Extend schema PaymentRequest and Payment
@@ -1251,7 +1251,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-014 — Extend schema Transaction WebAuthn UsedRequestId
@@ -1283,7 +1283,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-015 — Database indexes and constraints
@@ -1315,7 +1315,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-016 — Development seed script
@@ -1347,7 +1347,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-017 — Document Supabase connection in README
@@ -1379,7 +1379,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-018 — Optional RLS script for Supabase
@@ -1411,7 +1411,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-019 — Document Prisma inline transaction patterns
@@ -1443,7 +1443,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-020 — CI prisma generate in workflow
@@ -1475,7 +1475,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 2 — Supabase authentication (EPIC-02)
@@ -1512,7 +1512,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-022 — SupabaseStrategy Passport JWT
@@ -1544,7 +1544,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-023 — Global SupabaseAuthGuard and Public decorator
@@ -1576,7 +1576,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-024 — CurrentUser decorator and AuthenticatedUser interface
@@ -1608,7 +1608,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-025 — UsersModule sync user on first login
@@ -1640,7 +1640,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-026 — GET /v1/users/me
@@ -1672,7 +1672,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-027 — POST /v1/users/me/wallet link pubkey
@@ -1704,7 +1704,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-028 — Validate Stellar G... format in wallet
@@ -1736,7 +1736,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-029 — Unit tests auth guards and strategy
@@ -1768,7 +1768,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-030 — E2E auth with JWT mock
@@ -1800,7 +1800,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 3 — payment-request.v1 contract (EPIC-03)
@@ -1837,7 +1837,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-032 — Port payment-request.v1.ts from git
@@ -1869,7 +1869,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-033 — Unit tests payment-request.v1 contract
@@ -1901,7 +1901,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-034 — PaymentRequestsModule scaffold
@@ -1933,7 +1933,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-035 — POST /v1/payment-requests/validate
@@ -1965,7 +1965,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-036 — DTO and Swagger for validate endpoint
@@ -1997,7 +1997,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-037 — E2E validate valid and invalid Stellar cases
@@ -2029,7 +2029,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-038 — POST /v1/payment-requests persist receiver
@@ -2061,7 +2061,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-039 — Anti-replay requestId in UsedRequestId
@@ -2093,7 +2093,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-040 — GET /v1/payment-requests/:id
@@ -2125,7 +2125,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 4 — WebAuthn and Passkey (EPIC-02 ext.)
@@ -2162,7 +2162,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-042 — WebAuthnModule and challenge store DB
@@ -2194,7 +2194,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-043 — POST webauthn register options and verify
@@ -2226,7 +2226,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-044 — POST webauthn authenticate options
@@ -2258,7 +2258,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-045 — POST /v1/payments/:id/authorize WebAuthn
@@ -2290,7 +2290,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-046 — Per-device credentials policy
@@ -2322,7 +2322,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-047 — WebAuthn tests with mocks
@@ -2354,7 +2354,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-048 — Document hybrid auth flow in ARCHITECTURE
@@ -2386,7 +2386,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 5 — Stellar integration (EPIC-05)
@@ -2423,7 +2423,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-050 — StellarService getAccount and health
@@ -2455,7 +2455,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-051 — Resolve asset codes XLM and USDC
@@ -2487,7 +2487,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-052 — buildPaymentTransaction unsigned
@@ -2519,7 +2519,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-053 — simulateTransaction via RPC
@@ -2551,7 +2551,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-054 — submitTransaction broadcast XDR
@@ -2583,7 +2583,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-055 — pollTransactionStatus with timeout
@@ -2615,7 +2615,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-056 — POST /v1/transactions/simulate
@@ -2647,7 +2647,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-057 — Validate XDR matches payment intent
@@ -2679,7 +2679,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-058 — Horizon error handling and Stellar codes
@@ -2711,7 +2711,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-059 — GET /health/stellar
@@ -2743,7 +2743,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-060 — StellarService tests with SDK mocks
@@ -2775,7 +2775,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 6 — Payment lifecycle (EPIC-04)
@@ -2812,7 +2812,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-062 — POST /v1/payments create intent
@@ -2844,7 +2844,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-063 — Validate sender distinct from receiver and hints
@@ -2876,7 +2876,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-064 — Transition CREATED to AUTHORIZED
@@ -2908,7 +2908,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-065 — POST /v1/payments/:id/submit relay XDR
@@ -2940,7 +2940,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-066 — Transition AUTHORIZED to SUBMITTED
@@ -2972,7 +2972,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-067 — Event listener polling confirmation
@@ -3004,7 +3004,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-068 — Transition SUBMITTED to CONFIRMED or FAILED
@@ -3036,7 +3036,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-069 — GET /v1/payments/:id full status
@@ -3068,7 +3068,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-070 — Event payment.confirmed index Transaction
@@ -3100,7 +3100,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-071 — Idempotency on submit same paymentId
@@ -3132,7 +3132,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-072 — Timeout FAILED if no submit in time
@@ -3164,7 +3164,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-073 — E2E full flow with mock Stellar
@@ -3196,7 +3196,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-074 — Complete Swagger payments module
@@ -3228,7 +3228,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 7 — Transaction history (EPIC-06)
@@ -3265,7 +3265,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-076 — History filters asset date role status
@@ -3297,7 +3297,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-077 — Reconciliation sync from Horizon
@@ -3329,7 +3329,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-078 — Response DTO memo counterparty explorer link
@@ -3361,7 +3361,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-079 — DB indexes for history queries
@@ -3393,7 +3393,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-080 — Tests list and filters transactions
@@ -3425,7 +3425,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 8 — Security and hardening (EPIC-07)
@@ -3462,7 +3462,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-082 — Validate 5 min clock skew on requests
@@ -3494,7 +3494,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-083 — NFC expiration policy default 30s
@@ -3526,7 +3526,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-084 — Sanitize outputs without internal leak
@@ -3558,7 +3558,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-085 — AuditLog table and critical events
@@ -3590,7 +3590,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-086 — Restrictive CORS per environment
@@ -3622,7 +3622,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-087 — Request ID correlation X-Request-Id
@@ -3654,7 +3654,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-088 — Validate wallet JWT matches signer XDR
@@ -3686,7 +3686,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-089 — Replay protection stellarTxHash unique
@@ -3718,7 +3718,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-090 — Documented security review checklist
@@ -3750,7 +3750,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 9 — Observability and quality (EPIC-08/09)
@@ -3787,7 +3787,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-092 — GET /health readiness and liveness
@@ -3819,7 +3819,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-093 — Payment success rate metrics endpoint
@@ -3851,7 +3851,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-094 — Swagger tags and complete examples
@@ -3883,7 +3883,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-095 — docs/ARCHITECTURE.md server
@@ -3915,7 +3915,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-096 — docs/API.md endpoint reference
@@ -3947,7 +3947,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-097 — 80% test coverage critical modules
@@ -3979,7 +3979,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-098 — Complete E2E suite in CI
@@ -4011,7 +4011,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-099 — Contract tests payment-request.v1
@@ -4043,7 +4043,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-100 — Basic load test validate endpoint
@@ -4075,7 +4075,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### Phase 10 — Deploy and MVP release (EPIC-10)
@@ -4112,7 +4112,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-102 — docker-compose dev local postgres
@@ -4144,7 +4144,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-103 — GitHub Actions deploy staging
@@ -4176,7 +4176,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-104 — prisma migrate deploy in CI/CD
@@ -4208,7 +4208,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-105 — Operational runbook Stellar down
@@ -4240,7 +4240,7 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 ### SRV-106 — Server MVP release checklist
@@ -4272,22 +4272,22 @@ stateDiagram-v2
 
 **Client dependency:** See Section 9 — Client ↔ server matrix.
 
-**Notes for agents:** Run from `ding-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
+**Notes for agents:** Run from `vela-server/`. Atomic commit per task. Skills: `.agents/skills/nestjs-best-practices/`.
 
 
 #### Detailed implementations — Phase 0
 
 **SRV-001 — README**
-- Modify: `ding-server/README.md`
+- Modify: `vela-server/README.md`
 - Include: Vela description, prerequisites (Node 20+, Supabase), setup (`cp .env.example .env`), scripts, module structure, link to docs/
 
 **SRV-002 — .env.example**
-- Create: `ding-server/.env.example`
+- Create: `vela-server/.env.example`
 - Copy variables from Section 3 of this document
 
 **SRV-003 — Dependencies**
 ```bash
-cd ding-server
+cd vela-server
 npm install @nestjs/config @nestjs/swagger @nestjs/throttler @nestjs/event-emitter @nestjs/passport passport passport-jwt class-validator class-transformer helmet joi @supabase/supabase-js @prisma/client @stellar/stellar-sdk @simplewebauthn/server
 npm install -D prisma @types/passport-jwt
 ```
@@ -4310,7 +4310,7 @@ npm install -D prisma @types/passport-jwt
 
 **SRV-008 — Cursor rules**
 - Modify: `.cursor/rules/BACKEND-ARCHITECTURE.mdc`, `CORE-API.mdc`, `DATABASE.mdc`
-- Replace `apps/core-api/` → `ding-server/src/`
+- Replace `apps/core-api/` → `vela-server/src/`
 
 #### Detailed implementations — Phase 1
 
@@ -4430,10 +4430,10 @@ The following P0 tasks have additional instructions for agents. They complement 
 #### SRV-011 — DatabaseModule and PrismaService (extended)
 
 **Files:**
-- Create: `ding-server/src/database/database.module.ts`
-- Create: `ding-server/src/database/prisma.service.ts`
-- Create: `ding-server/src/database/index.ts`
-- Modify: `ding-server/src/app.module.ts`
+- Create: `vela-server/src/database/database.module.ts`
+- Create: `vela-server/src/database/prisma.service.ts`
+- Create: `vela-server/src/database/index.ts`
+- Modify: `vela-server/src/app.module.ts`
 
 **Implementation:**
 ```typescript
@@ -4459,9 +4459,9 @@ export class DatabaseModule {}
 #### SRV-023 — Global SupabaseAuthGuard (extended)
 
 **Files:**
-- Create: `ding-server/src/auth/decorators/public.decorator.ts`
-- Create: `ding-server/src/auth/guards/supabase-auth.guard.ts`
-- Modify: `ding-server/src/app.module.ts` — `{ provide: APP_GUARD, useClass: SupabaseAuthGuard }`
+- Create: `vela-server/src/auth/decorators/public.decorator.ts`
+- Create: `vela-server/src/auth/guards/supabase-auth.guard.ts`
+- Modify: `vela-server/src/app.module.ts` — `{ provide: APP_GUARD, useClass: SupabaseAuthGuard }`
 
 **Specific criteria:**
 - Endpoints with `@Public()`: `POST /v1/payment-requests/validate`, `GET /health`, `GET /health/*`
@@ -4475,11 +4475,11 @@ export class DatabaseModule {}
 #### SRV-035 — POST /v1/payment-requests/validate (extended)
 
 **Files:**
-- Create: `ding-server/src/modules/payment-requests/payment-requests.controller.ts`
-- Create: `ding-server/src/modules/payment-requests/payment-requests.service.ts`
-- Create: `ding-server/src/modules/payment-requests/payment-requests.module.ts`
-- Create: `ding-server/src/modules/payment-requests/dto/validate-payment-request.dto.ts`
-- Test: `ding-server/test/payment-requests-validate.e2e-spec.ts`
+- Create: `vela-server/src/modules/payment-requests/payment-requests.controller.ts`
+- Create: `vela-server/src/modules/payment-requests/payment-requests.service.ts`
+- Create: `vela-server/src/modules/payment-requests/payment-requests.module.ts`
+- Create: `vela-server/src/modules/payment-requests/dto/validate-payment-request.dto.ts`
+- Test: `vela-server/test/payment-requests-validate.e2e-spec.ts`
 
 **Service implementation:**
 ```typescript
@@ -4510,9 +4510,9 @@ export class PaymentRequestsService {
 #### SRV-045 — POST /v1/payments/:id/authorize (extended)
 
 **Files:**
-- Create: `ding-server/src/modules/payments/dto/authorize-payment.dto.ts`
-- Modify: `ding-server/src/modules/payments/payments.controller.ts`
-- Modify: `ding-server/src/modules/payments/payments.service.ts`
+- Create: `vela-server/src/modules/payments/dto/authorize-payment.dto.ts`
+- Modify: `vela-server/src/modules/payments/payments.controller.ts`
+- Modify: `vela-server/src/modules/payments/payments.service.ts`
 
 **Flow:**
 1. Client calls `POST /v1/webauthn/authenticate/options` with `{ paymentId }`
@@ -4535,8 +4535,8 @@ export class PaymentRequestsService {
 #### SRV-057 — Validate XDR matches payment intent (extended)
 
 **Files:**
-- Create: `ding-server/src/stellar/xdr-validator.service.ts`
-- Test: `ding-server/src/stellar/xdr-validator.service.spec.ts`
+- Create: `vela-server/src/stellar/xdr-validator.service.ts`
+- Test: `vela-server/src/stellar/xdr-validator.service.spec.ts`
 
 **Implementation:**
 ```typescript
@@ -4564,8 +4564,8 @@ validatePaymentXdr(signedXdr: string, intent: PaymentIntent): void {
 #### SRV-065 — POST /v1/payments/:id/submit relay XDR (extended)
 
 **Files:**
-- Create: `ding-server/src/modules/payments/dto/submit-payment.dto.ts`
-- Modify: `ding-server/src/modules/payments/payments.service.ts`
+- Create: `vela-server/src/modules/payments/dto/submit-payment.dto.ts`
+- Modify: `vela-server/src/modules/payments/payments.service.ts`
 
 **Full flow:**
 1. Verify payment `AUTHORIZED`
@@ -4597,7 +4597,7 @@ export class SubmitPaymentDto {
 #### SRV-067 — Event listener polling confirmation (extended)
 
 **Files:**
-- Create: `ding-server/src/modules/payments/payment-confirmation.listener.ts`
+- Create: `vela-server/src/modules/payments/payment-confirmation.listener.ts`
 
 **Implementation:**
 ```typescript
@@ -4707,7 +4707,7 @@ The client **must** emit `payment-request.v1`:
 }
 ```
 
-**Do not use** the simplified format from ding-payments.md (unix timestamps, type `payment_request` with underscore).
+**Do not use** the simplified format from vela-overview.md (unix timestamps, type `payment_request` with underscore).
 
 ---
 
@@ -4811,7 +4811,7 @@ The client **must** emit `payment-request.v1`:
 
 ```bash
 # Development
-cd ding-server
+cd vela-server
 cp .env.example .env
 npm install
 npm run prisma:generate

@@ -1,6 +1,6 @@
 # Vela — Server Build Plan (Consolidated)
 
-> **Executive backlog for `ding-server/`** — 20 deliverables across 4 stages.
+> **Executive backlog for `vela-server/`** — 20 deliverables across 4 stages.
 >
 > **Version: 1.2** · Date: 2026-06-17 · Scope: server MVP
 >
@@ -10,9 +10,9 @@
 
 **Required references:**
 
-- [ding-payments.md](./ding-payments.md) — product vision and UX flows
+- [vela-overview.md](./vela-overview.md) — product vision and UX flows
 - [payment-request.v1.md](./payment-request.v1.md) — canonical NFC contract
-- Client consolidated plan: `ding-payments/docs/build-plan-client-consolidated.md`
+- Client consolidated plan: `vela-payments/docs/build-plan-client-consolidated.md`
 
 ---
 
@@ -33,7 +33,7 @@
 4. **Link dependencies** in the Issue sidebar: paste `Depends on: S##` and link sibling Issues.
 5. **Use atomic sub-tasks** as checklist items (SRV-ID table) or spawn sub-issues for parallel agents.
 6. **Acceptance criteria** are the merge gate — every checkbox must pass before closing the Issue.
-7. **Cross-repo:** When Client coordination mentions client deliverables, link matching `C##` Issues in `ding-payments`.
+7. **Cross-repo:** When Client coordination mentions client deliverables, link matching `C##` Issues in `vela-payments`.
 
 ### Field legend
 
@@ -141,7 +141,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -152,7 +152,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -216,9 +216,9 @@ THROTTLE_LIMIT=100
 
 **Files to create/modify**
 
-- `ding-server/README.md`
-- `ding-server/.env.example`
-- `ding-server/package.json`
+- `vela-server/README.md`
+- `vela-server/.env.example`
+- `vela-server/package.json`
 - `See server-build-plan.md atomic files for SRV-001`
 - `See server-build-plan.md atomic files for SRV-002`
 - `See server-build-plan.md atomic files for SRV-003`
@@ -341,11 +341,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-004, SRV-005, SRV-006 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S02
+- Production-quality code under `vela-server/src/` for S02
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -356,7 +356,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -420,7 +420,7 @@ THROTTLE_LIMIT=100
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-004`
 - `See server-build-plan.md atomic files for SRV-005`
 - `See server-build-plan.md atomic files for SRV-006`
@@ -542,11 +542,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-007, SRV-008 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S03
+- Production-quality code under `vela-server/src/` for S03
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -557,7 +557,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -621,7 +621,7 @@ THROTTLE_LIMIT=100
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-007`
 - `See server-build-plan.md atomic files for SRV-008`
 
@@ -745,11 +745,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-009, SRV-010, SRV-011, SRV-012 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S04
+- Production-quality code under `vela-server/src/` for S04
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -760,7 +760,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -834,7 +834,7 @@ enum TransactionDirection { SENT RECEIVED }
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-009`
 - `See server-build-plan.md atomic files for SRV-010`
 - `See server-build-plan.md atomic files for SRV-011`
@@ -964,11 +964,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-013, SRV-014, SRV-015, SRV-016, SRV-017, SRV-018, SRV-019, SRV-020 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S05
+- Production-quality code under `vela-server/src/` for S05
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -979,7 +979,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -1053,7 +1053,7 @@ enum TransactionDirection { SENT RECEIVED }
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-013`
 - `See server-build-plan.md atomic files for SRV-014`
 - `See server-build-plan.md atomic files for SRV-015`
@@ -1195,11 +1195,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-021, SRV-022, SRV-023, SRV-024, SRV-025 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S06
+- Production-quality code under `vela-server/src/` for S06
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -1210,7 +1210,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -1234,7 +1234,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-021`
 - `See server-build-plan.md atomic files for SRV-022`
 - `See server-build-plan.md atomic files for SRV-023`
@@ -1364,11 +1364,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-026, SRV-027, SRV-028, SRV-029, SRV-030 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S07
+- Production-quality code under `vela-server/src/` for S07
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -1379,7 +1379,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -1427,7 +1427,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-026`
 - `See server-build-plan.md atomic files for SRV-027`
 - `See server-build-plan.md atomic files for SRV-028`
@@ -1562,7 +1562,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -1573,7 +1573,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -1714,9 +1714,9 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/docs/payment-request.v1.md`
-- `ding-server/src/contracts/payment-request.v1.ts`
-- `ding-server/src/modules/payment-requests/`
+- `vela-server/docs/payment-request.v1.md`
+- `vela-server/src/contracts/payment-request.v1.ts`
+- `vela-server/src/modules/payment-requests/`
 - `See server-build-plan.md atomic files for SRV-031`
 - `See server-build-plan.md atomic files for SRV-032`
 - `See server-build-plan.md atomic files for SRV-033`
@@ -1893,11 +1893,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-036, SRV-037, SRV-038, SRV-039, SRV-040 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S09
+- Production-quality code under `vela-server/src/` for S09
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -1908,7 +1908,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -2049,7 +2049,7 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-036`
 - `See server-build-plan.md atomic files for SRV-037`
 - `See server-build-plan.md atomic files for SRV-038`
@@ -2224,11 +2224,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-041, SRV-042, SRV-043, SRV-044, SRV-045 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S10
+- Production-quality code under `vela-server/src/` for S10
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -2239,7 +2239,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -2339,7 +2339,7 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-041`
 - `See server-build-plan.md atomic files for SRV-042`
 - `See server-build-plan.md atomic files for SRV-043`
@@ -2505,11 +2505,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-046, SRV-047, SRV-048 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S11
+- Production-quality code under `vela-server/src/` for S11
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -2520,7 +2520,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -2544,7 +2544,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-046`
 - `See server-build-plan.md atomic files for SRV-047`
 - `See server-build-plan.md atomic files for SRV-048`
@@ -2671,11 +2671,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-049, SRV-050, SRV-051, SRV-052, SRV-053, SRV-054, SRV-055 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S12
+- Production-quality code under `vela-server/src/` for S12
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -2686,7 +2686,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -2710,7 +2710,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-049`
 - `See server-build-plan.md atomic files for SRV-050`
 - `See server-build-plan.md atomic files for SRV-051`
@@ -2843,11 +2843,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-056, SRV-057, SRV-058, SRV-059, SRV-060 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S13
+- Production-quality code under `vela-server/src/` for S13
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -2858,7 +2858,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -2882,7 +2882,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-056`
 - `See server-build-plan.md atomic files for SRV-057`
 - `See server-build-plan.md atomic files for SRV-058`
@@ -3022,7 +3022,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -3033,7 +3033,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -3184,8 +3184,8 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/src/modules/payments/payment-state.machine.ts`
-- `ding-server/src/modules/payments/payments.service.ts`
+- `vela-server/src/modules/payments/payment-state.machine.ts`
+- `vela-server/src/modules/payments/payments.service.ts`
 - `See server-build-plan.md atomic files for SRV-061`
 - `See server-build-plan.md atomic files for SRV-062`
 - `See server-build-plan.md atomic files for SRV-063`
@@ -3368,11 +3368,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-067, SRV-068, SRV-069, SRV-070, SRV-071, SRV-072 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S15
+- Production-quality code under `vela-server/src/` for S15
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -3383,7 +3383,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -3493,7 +3493,7 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-067`
 - `See server-build-plan.md atomic files for SRV-068`
 - `See server-build-plan.md atomic files for SRV-069`
@@ -3666,11 +3666,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-073, SRV-074, SRV-075, SRV-076 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S16
+- Production-quality code under `vela-server/src/` for S16
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -3681,7 +3681,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -3781,7 +3781,7 @@ stateDiagram-v2
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-073`
 - `See server-build-plan.md atomic files for SRV-074`
 - `See server-build-plan.md atomic files for SRV-075`
@@ -3940,11 +3940,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-077, SRV-078, SRV-079, SRV-080 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S17
+- Production-quality code under `vela-server/src/` for S17
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -3955,7 +3955,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -3979,7 +3979,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-077`
 - `See server-build-plan.md atomic files for SRV-078`
 - `See server-build-plan.md atomic files for SRV-079`
@@ -4116,7 +4116,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -4127,7 +4127,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -4192,7 +4192,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-081`
 - `See server-build-plan.md atomic files for SRV-082`
 - `See server-build-plan.md atomic files for SRV-083`
@@ -4334,11 +4334,11 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 - All atomic tasks SRV-089, SRV-090, SRV-091, SRV-092, SRV-093, SRV-094, SRV-095, SRV-096, SRV-097, SRV-099 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Production-quality code under `ding-server/src/` for S19
+- Production-quality code under `vela-server/src/` for S19
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -4349,7 +4349,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -4373,7 +4373,7 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/src/`
+- `vela-server/src/`
 - `See server-build-plan.md atomic files for SRV-089`
 - `See server-build-plan.md atomic files for SRV-090`
 - `See server-build-plan.md atomic files for SRV-091`
@@ -4519,7 +4519,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 
 **Scope — Out**
 
-- Client UI or Expo changes (ding-payments repo)
+- Client UI or Expo changes (vela-payments repo)
 - Mainnet launch configuration (testnet MVP only unless explicitly toggled)
 - Push notifications on payment confirmation (post-MVP P3)
 - Custodial wallets or server-side key storage
@@ -4530,7 +4530,7 @@ Vela is a self-custodial Stellar P2P app: the server validates NFC payment reque
 Target architecture from [server-build-plan.md](./server-build-plan.md) Section 3: flat `src/modules/*` layout, ConfigModule validation, global exception filter, URI versioning `/v1`.
 
 ```
-ding-server/
+vela-server/
 ├── src/
 │   ├── main.ts
 │   ├── app.module.ts
@@ -4554,8 +4554,8 @@ ding-server/
 
 **Files to create/modify**
 
-- `ding-server/Dockerfile`
-- `ding-server/docker-compose.yml`
+- `vela-server/Dockerfile`
+- `vela-server/docker-compose.yml`
 - `.github/workflows/`
 - `See server-build-plan.md atomic files for SRV-098`
 - `See server-build-plan.md atomic files for SRV-100`

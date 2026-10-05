@@ -52,7 +52,7 @@ export type PaymentRequestValidationResult =
     };
 
 export const paymentRequestV1JsonSchema = {
-  $id: 'https://ding-payments.dev/contracts/payment-request.v1.schema.json',
+  $id: 'https://github.com/VelaPayments/vela-server/blob/main/docs/payment-request.v1.md',
   $schema: 'https://json-schema.org/draft/2020-12/schema',
   title: 'payment-request.v1',
   type: 'object',

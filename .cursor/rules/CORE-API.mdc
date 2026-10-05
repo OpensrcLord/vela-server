@@ -1,9 +1,9 @@
 ---
-description: Core backend conventions for the NestJS ding-server
+description: Core backend conventions for the NestJS Vela server
 alwaysApply: true
 ---
 
-# Backend Core — ding-server
+# Backend Core — Vela server
 
 You are a Senior Backend Engineer working on a **NestJS API** with **Prisma** and **Supabase PostgreSQL**.
 
@@ -53,7 +53,7 @@ src/modules/{feature}/
 
 Detailed docs for each subsystem live in `docs/`. Reference them for deep context:
 
-- `ding-payments.md` — overall product flows and UX
+- `vela-overview.md` — overall product flows and UX
 - `server-build-plan.md` — server backend build plan
 - `server-build-plan-consolidated.md` — consolidated plan
 - `unit-tests.md` — testing patterns and conventions

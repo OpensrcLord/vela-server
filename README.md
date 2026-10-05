@@ -93,7 +93,7 @@ vela-server/
 
 | Document                                                                           | Description                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------- |
-| [docs/ding-payments.md](./docs/ding-payments.md)                                   | Product vision and UX flows        |
+| [docs/vela-overview.md](./docs/vela-overview.md)                                   | Product vision and UX flows        |
 | [docs/server-build-plan.md](./docs/server-build-plan.md)                           | Full server build plan (SRV tasks) |
 | [docs/server-build-plan-consolidated.md](./docs/server-build-plan-consolidated.md) | Consolidated task reference        |
 

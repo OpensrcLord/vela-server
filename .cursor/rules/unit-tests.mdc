@@ -4,7 +4,7 @@ globs: src/**/*.spec.ts
 alwaysApply: true
 ---
 
-# Unit Test Conventions — Ding Payments
+# Unit Test Conventions — Vela
 
 Tests use **Jest 30** with **@nestjs/testing**. Co-located next to their source files.
 

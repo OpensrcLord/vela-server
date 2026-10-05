@@ -1,10 +1,10 @@
 ---
-description: Core API architecture and project structure for Ding Payments
+description: Core API architecture and project structure for Vela
 globs: src/**
 alwaysApply: true
 ---
 
-# Core API Architecture — Ding Payments
+# Core API Architecture — Vela
 
 ## Architecture Overview
 
@@ -24,7 +24,7 @@ Request → Helmet / CORS → ThrottlerGuard → SupabaseAuthGuard → RolesGuar
 ## Project Structure
 
 ```
-ding-server/
+vela-server/
 ├── prisma/
 │   ├── schema.prisma
 │   └── seed.ts

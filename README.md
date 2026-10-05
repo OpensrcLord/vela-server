@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/brand/vela-mark.png" alt="Vela" width="120" /></p>
+
 # Vela — Server
 
 Backend API for **Vela**: peer-to-peer NFC payments on the [Stellar](https://stellar.org) network (testnet MVP).

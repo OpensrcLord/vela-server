@@ -75,7 +75,7 @@ describe('WebAuthnService', () => {
       get: (key: string) =>
         ({
           'webauthn.rpId': 'localhost',
-          'webauthn.rpName': 'Ding Payments',
+          'webauthn.rpName': 'Vela',
           'webauthn.origin': 'http://localhost:8081',
         })[key],
     } as unknown as ConfigService;

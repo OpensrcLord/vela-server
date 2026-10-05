@@ -9,7 +9,7 @@ import { IsObject, IsOptional, IsString, MaxLength } from 'class-validator';
  * un-nested-validated so the raw attestation fields pass through untouched to
  * `verifyRegistrationResponse`.
  *
- * `deviceName` is Ding's own addition (SRV-046, per-device credentials
+ * `deviceName` is Vela's own addition (SRV-046, per-device credentials
  * policy) — it is NOT part of the SimpleWebAuthn response and is stripped
  * out by the controller before the rest of the body is forwarded to
  * `verifyRegistrationResponse`.

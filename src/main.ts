@@ -45,7 +45,7 @@ async function bootstrap() {
 
   if (swaggerEnabled) {
     const swaggerConfig = new DocumentBuilder()
-      .setTitle('Ding Payments API')
+      .setTitle('Vela API')
       .setDescription('Self-custodial Stellar P2P payments via NFC')
       .setVersion('1.0')
       .addBearerAuth()

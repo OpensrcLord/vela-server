@@ -1,4 +1,4 @@
-# Ding Payments — Server Build Plan
+# Vela — Server Build Plan
 
 > **Master implementation document for the backend (`ding-server`)**
 >
@@ -31,7 +31,7 @@
 
 ### Purpose
 
-This document is the complete technical backlog for the Ding Payments server. Each task (`SRV-###`) is designed to be executed by an agent or developer **without exploring the repository or reading other docs**, except for the explicit references in each task.
+This document is the complete technical backlog for the Vela server. Each task (`SRV-###`) is designed to be executed by an agent or developer **without exploring the repository or reading other docs**, except for the explicit references in each task.
 
 Use it to:
 - Split work into epics, sprints, and tickets
@@ -133,7 +133,7 @@ sequenceDiagram
 
 ### Vision
 
-Ding Payments enables instant P2P payments via NFC on Stellar. The experience should feel like Apple Pay / Google Pay, but with a self-custodial wallet and passkeys. Blockchain complexity is invisible to the user.
+Vela enables instant P2P payments via NFC on Stellar. The experience should feel like Apple Pay / Google Pay, but with a self-custodial wallet and passkeys. Blockchain complexity is invisible to the user.
 
 Source: [ding-payments.md](./ding-payments.md)
 
@@ -342,7 +342,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -432,7 +432,7 @@ enum TransactionDirection {
 
 ### `User` model
 
-Links Supabase identity with Ding profile and Stellar wallet.
+Links Supabase identity with Vela profile and Stellar wallet.
 
 | Field | Type | Rules |
 |-------|------|--------|
@@ -719,7 +719,7 @@ stateDiagram-v2
 
 | ID | Title | Epic | Phase | P | C | Blocked by |
 |----|--------|------|------|---|---|------------|
-| SRV-001 | Update README with Ding Payments branding | EPIC-00 | 0 | P0 | E | — |
+| SRV-001 | Update README with Vela branding | EPIC-00 | 0 | P0 | E | — |
 | SRV-002 | Create .env.example with all variables | EPIC-00 | 0 | P0 | E | — |
 | SRV-003 | Install core server dependencies | EPIC-00 | 0 | P0 | M | — |
 | SRV-004 | Configure ConfigModule and env validation | EPIC-00 | 0 | P0 | M | 002, 003 |
@@ -833,7 +833,7 @@ stateDiagram-v2
 **Summary:** 8 tasks. Dominant priority: P0.
 
 
-### SRV-001 — Update README with Ding Payments branding
+### SRV-001 — Update README with Vela branding
 
 | Field | Value |
 |-------|-------|
@@ -847,7 +847,7 @@ stateDiagram-v2
 
 **Context:** The current README is the default NestJS template. New agents and developers have no project context.
 
-**Objective:** Complete "Update README with Ding Payments branding" per the architecture defined in Sections 3–6 of this document.
+**Objective:** Complete "Update README with Vela branding" per the architecture defined in Sections 3–6 of this document.
 
 **Acceptance criteria:**
 - Implementation compiles without TypeScript errors
@@ -941,7 +941,7 @@ stateDiagram-v2
 | Blocks | SRV-005, SRV-011, SRV-021, SRV-049 |
 | Est. effort | 3h |
 
-**Context:** Task 004 of phase 0, epic EPIC-00. Part of the Ding Payments server MVP build plan.
+**Context:** Task 004 of phase 0, epic EPIC-00. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Configure ConfigModule and env validation" per the architecture defined in Sections 3–6 of this document.
 
@@ -973,7 +973,7 @@ stateDiagram-v2
 | Blocks | SRV-006, SRV-030, SRV-037, SRV-073 |
 | Est. effort | 4h |
 
-**Context:** Task 005 of phase 0, epic EPIC-00. Part of the Ding Payments server MVP build plan.
+**Context:** Task 005 of phase 0, epic EPIC-00. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Bootstrap production-ready main.ts" per the architecture defined in Sections 3–6 of this document.
 
@@ -1005,7 +1005,7 @@ stateDiagram-v2
 | Blocks | SRV-084 |
 | Est. effort | 3h |
 
-**Context:** Task 006 of phase 0, epic EPIC-00. Part of the Ding Payments server MVP build plan.
+**Context:** Task 006 of phase 0, epic EPIC-00. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Global exception filter and error format" per the architecture defined in Sections 3–6 of this document.
 
@@ -1037,7 +1037,7 @@ stateDiagram-v2
 | Blocks | SRV-011, SRV-021, SRV-034, SRV-049, SRV-061 |
 | Est. effort | 1h |
 
-**Context:** Task 007 of phase 0, epic EPIC-00. Part of the Ding Payments server MVP build plan.
+**Context:** Task 007 of phase 0, epic EPIC-00. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Base src/ folder structure" per the architecture defined in Sections 3–6 of this document.
 
@@ -1069,7 +1069,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 1h |
 
-**Context:** Task 008 of phase 0, epic EPIC-00. Part of the Ding Payments server MVP build plan.
+**Context:** Task 008 of phase 0, epic EPIC-00. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Update .cursor/rules to flat layout" per the architecture defined in Sections 3–6 of this document.
 
@@ -1106,7 +1106,7 @@ stateDiagram-v2
 | Blocks | SRV-010, SRV-011, SRV-020 |
 | Est. effort | 1h |
 
-**Context:** Task 009 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 009 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Install Prisma and npm scripts" per the architecture defined in Sections 3–6 of this document.
 
@@ -1138,7 +1138,7 @@ stateDiagram-v2
 | Blocks | SRV-012, SRV-013 |
 | Est. effort | 3h |
 
-**Context:** Task 010 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 010 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Initial Prisma schema User and Wallet" per the architecture defined in Sections 3–6 of this document.
 
@@ -1170,7 +1170,7 @@ stateDiagram-v2
 | Blocks | SRV-012, SRV-025, SRV-038 |
 | Est. effort | 3h |
 
-**Context:** Task 011 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 011 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "DatabaseModule and PrismaService" per the architecture defined in Sections 3–6 of this document.
 
@@ -1202,7 +1202,7 @@ stateDiagram-v2
 | Blocks | SRV-013, SRV-016, SRV-092 |
 | Est. effort | 2h |
 
-**Context:** Task 012 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 012 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Initial database migration" per the architecture defined in Sections 3–6 of this document.
 
@@ -1234,7 +1234,7 @@ stateDiagram-v2
 | Blocks | SRV-014, SRV-015, SRV-038, SRV-062 |
 | Est. effort | 4h |
 
-**Context:** Task 013 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 013 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Extend schema PaymentRequest and Payment" per the architecture defined in Sections 3–6 of this document.
 
@@ -1266,7 +1266,7 @@ stateDiagram-v2
 | Blocks | SRV-015, SRV-042, SRV-039, SRV-070 |
 | Est. effort | 4h |
 
-**Context:** Task 014 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 014 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Extend schema Transaction WebAuthn UsedRequestId" per the architecture defined in Sections 3–6 of this document.
 
@@ -1298,7 +1298,7 @@ stateDiagram-v2
 | Blocks | SRV-079, SRV-089 |
 | Est. effort | 3h |
 
-**Context:** Task 015 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 015 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Database indexes and constraints" per the architecture defined in Sections 3–6 of this document.
 
@@ -1330,7 +1330,7 @@ stateDiagram-v2
 | Blocks | SRV-073 |
 | Est. effort | 3h |
 
-**Context:** Task 016 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 016 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Development seed script" per the architecture defined in Sections 3–6 of this document.
 
@@ -1362,7 +1362,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 1h |
 
-**Context:** Task 017 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 017 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Document Supabase connection in README" per the architecture defined in Sections 3–6 of this document.
 
@@ -1394,7 +1394,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3h |
 
-**Context:** Task 018 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 018 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Optional RLS script for Supabase" per the architecture defined in Sections 3–6 of this document.
 
@@ -1426,7 +1426,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 1h |
 
-**Context:** Task 019 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 019 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Document Prisma inline transaction patterns" per the architecture defined in Sections 3–6 of this document.
 
@@ -1458,7 +1458,7 @@ stateDiagram-v2
 | Blocks | SRV-098 |
 | Est. effort | 1h |
 
-**Context:** Task 020 of phase 1, epic EPIC-01. Part of the Ding Payments server MVP build plan.
+**Context:** Task 020 of phase 1, epic EPIC-01. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "CI prisma generate in workflow" per the architecture defined in Sections 3–6 of this document.
 
@@ -1495,7 +1495,7 @@ stateDiagram-v2
 | Blocks | SRV-022 |
 | Est. effort | 3h |
 
-**Context:** Task 021 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 021 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "SupabaseModule and SupabaseService" per the architecture defined in Sections 3–6 of this document.
 
@@ -1527,7 +1527,7 @@ stateDiagram-v2
 | Blocks | SRV-023 |
 | Est. effort | 4h |
 
-**Context:** Task 022 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 022 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "SupabaseStrategy Passport JWT" per the architecture defined in Sections 3–6 of this document.
 
@@ -1559,7 +1559,7 @@ stateDiagram-v2
 | Blocks | SRV-029, SRV-035, SRV-062 |
 | Est. effort | 3h |
 
-**Context:** Task 023 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 023 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Global SupabaseAuthGuard and Public decorator" per the architecture defined in Sections 3–6 of this document.
 
@@ -1591,7 +1591,7 @@ stateDiagram-v2
 | Blocks | SRV-025, SRV-026 |
 | Est. effort | 2h |
 
-**Context:** Task 024 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 024 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "CurrentUser decorator and AuthenticatedUser interface" per the architecture defined in Sections 3–6 of this document.
 
@@ -1623,7 +1623,7 @@ stateDiagram-v2
 | Blocks | SRV-026, SRV-027 |
 | Est. effort | 4h |
 
-**Context:** Task 025 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 025 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "UsersModule sync user on first login" per the architecture defined in Sections 3–6 of this document.
 
@@ -1655,7 +1655,7 @@ stateDiagram-v2
 | Blocks | SRV-088 |
 | Est. effort | 3h |
 
-**Context:** Task 026 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 026 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GET /v1/users/me" per the architecture defined in Sections 3–6 of this document.
 
@@ -1687,7 +1687,7 @@ stateDiagram-v2
 | Blocks | SRV-028, SRV-088 |
 | Est. effort | 4h |
 
-**Context:** Task 027 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 027 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST /v1/users/me/wallet link pubkey" per the architecture defined in Sections 3–6 of this document.
 
@@ -1719,7 +1719,7 @@ stateDiagram-v2
 | Blocks | SRV-088 |
 | Est. effort | 2h |
 
-**Context:** Task 028 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 028 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Validate Stellar G... format in wallet" per the architecture defined in Sections 3–6 of this document.
 
@@ -1751,7 +1751,7 @@ stateDiagram-v2
 | Blocks | SRV-097 |
 | Est. effort | 4h |
 
-**Context:** Task 029 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 029 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Unit tests auth guards and strategy" per the architecture defined in Sections 3–6 of this document.
 
@@ -1783,7 +1783,7 @@ stateDiagram-v2
 | Blocks | SRV-098 |
 | Est. effort | 4h |
 
-**Context:** Task 030 of phase 2, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 030 of phase 2, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "E2E auth with JWT mock" per the architecture defined in Sections 3–6 of this document.
 
@@ -1820,7 +1820,7 @@ stateDiagram-v2
 | Blocks | SRV-032 |
 | Est. effort | 1h |
 
-**Context:** Task 031 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 031 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Restore docs/payment-request.v1.md" per the architecture defined in Sections 3–6 of this document.
 
@@ -1852,7 +1852,7 @@ stateDiagram-v2
 | Blocks | SRV-033, SRV-035 |
 | Est. effort | 3h |
 
-**Context:** Task 032 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 032 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Port payment-request.v1.ts from git" per the architecture defined in Sections 3–6 of this document.
 
@@ -1884,7 +1884,7 @@ stateDiagram-v2
 | Blocks | SRV-099 |
 | Est. effort | 5h |
 
-**Context:** Task 033 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 033 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Unit tests payment-request.v1 contract" per the architecture defined in Sections 3–6 of this document.
 
@@ -1916,7 +1916,7 @@ stateDiagram-v2
 | Blocks | SRV-035 |
 | Est. effort | 2h |
 
-**Context:** Task 034 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 034 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "PaymentRequestsModule scaffold" per the architecture defined in Sections 3–6 of this document.
 
@@ -1980,7 +1980,7 @@ stateDiagram-v2
 | Blocks | SRV-094 |
 | Est. effort | 2h |
 
-**Context:** Task 036 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 036 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "DTO and Swagger for validate endpoint" per the architecture defined in Sections 3–6 of this document.
 
@@ -2012,7 +2012,7 @@ stateDiagram-v2
 | Blocks | SRV-098 |
 | Est. effort | 4h |
 
-**Context:** Task 037 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 037 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "E2E validate valid and invalid Stellar cases" per the architecture defined in Sections 3–6 of this document.
 
@@ -2044,7 +2044,7 @@ stateDiagram-v2
 | Blocks | SRV-039, SRV-040, SRV-062 |
 | Est. effort | 4h |
 
-**Context:** Task 038 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 038 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST /v1/payment-requests persist receiver" per the architecture defined in Sections 3–6 of this document.
 
@@ -2076,7 +2076,7 @@ stateDiagram-v2
 | Blocks | SRV-062 |
 | Est. effort | 3h |
 
-**Context:** Task 039 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 039 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Anti-replay requestId in UsedRequestId" per the architecture defined in Sections 3–6 of this document.
 
@@ -2108,7 +2108,7 @@ stateDiagram-v2
 | Blocks | SRV-062 |
 | Est. effort | 3h |
 
-**Context:** Task 040 of phase 3, epic EPIC-03. Part of the Ding Payments server MVP build plan.
+**Context:** Task 040 of phase 3, epic EPIC-03. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GET /v1/payment-requests/:id" per the architecture defined in Sections 3–6 of this document.
 
@@ -2145,7 +2145,7 @@ stateDiagram-v2
 | Blocks | SRV-042 |
 | Est. effort | 3-5h |
 
-**Context:** Task 041 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 041 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Install @simplewebauthn/server" per the architecture defined in Sections 3–6 of this document.
 
@@ -2177,7 +2177,7 @@ stateDiagram-v2
 | Blocks | SRV-043, SRV-044, SRV-045 |
 | Est. effort | 3-5h |
 
-**Context:** Task 042 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 042 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "WebAuthnModule and challenge store DB" per the architecture defined in Sections 3–6 of this document.
 
@@ -2209,7 +2209,7 @@ stateDiagram-v2
 | Blocks | SRV-045, SRV-047 |
 | Est. effort | 3-5h |
 
-**Context:** Task 043 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 043 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST webauthn register options and verify" per the architecture defined in Sections 3–6 of this document.
 
@@ -2241,7 +2241,7 @@ stateDiagram-v2
 | Blocks | SRV-045 |
 | Est. effort | 3-5h |
 
-**Context:** Task 044 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 044 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST webauthn authenticate options" per the architecture defined in Sections 3–6 of this document.
 
@@ -2305,7 +2305,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 046 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 046 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Per-device credentials policy" per the architecture defined in Sections 3–6 of this document.
 
@@ -2337,7 +2337,7 @@ stateDiagram-v2
 | Blocks | SRV-097 |
 | Est. effort | 3-5h |
 
-**Context:** Task 047 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 047 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "WebAuthn tests with mocks" per the architecture defined in Sections 3–6 of this document.
 
@@ -2369,7 +2369,7 @@ stateDiagram-v2
 | Blocks | SRV-095 |
 | Est. effort | 3-5h |
 
-**Context:** Task 048 of phase 4, epic EPIC-02. Part of the Ding Payments server MVP build plan.
+**Context:** Task 048 of phase 4, epic EPIC-02. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Document hybrid auth flow in ARCHITECTURE" per the architecture defined in Sections 3–6 of this document.
 
@@ -2406,7 +2406,7 @@ stateDiagram-v2
 | Blocks | SRV-050, SRV-051 |
 | Est. effort | 3-5h |
 
-**Context:** Task 049 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 049 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "StellarModule and network configuration" per the architecture defined in Sections 3–6 of this document.
 
@@ -2438,7 +2438,7 @@ stateDiagram-v2
 | Blocks | SRV-059 |
 | Est. effort | 3-5h |
 
-**Context:** Task 050 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 050 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "StellarService getAccount and health" per the architecture defined in Sections 3–6 of this document.
 
@@ -2470,7 +2470,7 @@ stateDiagram-v2
 | Blocks | SRV-052, SRV-056 |
 | Est. effort | 3-5h |
 
-**Context:** Task 051 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 051 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Resolve asset codes XLM and USDC" per the architecture defined in Sections 3–6 of this document.
 
@@ -2502,7 +2502,7 @@ stateDiagram-v2
 | Blocks | SRV-053, SRV-056 |
 | Est. effort | 3-5h |
 
-**Context:** Task 052 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 052 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "buildPaymentTransaction unsigned" per the architecture defined in Sections 3–6 of this document.
 
@@ -2534,7 +2534,7 @@ stateDiagram-v2
 | Blocks | SRV-056 |
 | Est. effort | 3-5h |
 
-**Context:** Task 053 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 053 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "simulateTransaction via RPC" per the architecture defined in Sections 3–6 of this document.
 
@@ -2566,7 +2566,7 @@ stateDiagram-v2
 | Blocks | SRV-065, SRV-057 |
 | Est. effort | 3-5h |
 
-**Context:** Task 054 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 054 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "submitTransaction broadcast XDR" per the architecture defined in Sections 3–6 of this document.
 
@@ -2598,7 +2598,7 @@ stateDiagram-v2
 | Blocks | SRV-067, SRV-068 |
 | Est. effort | 3-5h |
 
-**Context:** Task 055 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 055 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "pollTransactionStatus with timeout" per the architecture defined in Sections 3–6 of this document.
 
@@ -2630,7 +2630,7 @@ stateDiagram-v2
 | Blocks | SRV-074 |
 | Est. effort | 3-5h |
 
-**Context:** Task 056 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 056 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST /v1/transactions/simulate" per the architecture defined in Sections 3–6 of this document.
 
@@ -2694,7 +2694,7 @@ stateDiagram-v2
 | Blocks | SRV-068 |
 | Est. effort | 3-5h |
 
-**Context:** Task 058 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 058 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Horizon error handling and Stellar codes" per the architecture defined in Sections 3–6 of this document.
 
@@ -2726,7 +2726,7 @@ stateDiagram-v2
 | Blocks | SRV-092 |
 | Est. effort | 3-5h |
 
-**Context:** Task 059 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 059 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GET /health/stellar" per the architecture defined in Sections 3–6 of this document.
 
@@ -2758,7 +2758,7 @@ stateDiagram-v2
 | Blocks | SRV-097 |
 | Est. effort | 3-5h |
 
-**Context:** Task 060 of phase 5, epic EPIC-05. Part of the Ding Payments server MVP build plan.
+**Context:** Task 060 of phase 5, epic EPIC-05. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "StellarService tests with SDK mocks" per the architecture defined in Sections 3–6 of this document.
 
@@ -2795,7 +2795,7 @@ stateDiagram-v2
 | Blocks | SRV-062, SRV-045 |
 | Est. effort | 3-5h |
 
-**Context:** Task 061 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 061 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "PaymentsModule and state machine service" per the architecture defined in Sections 3–6 of this document.
 
@@ -2827,7 +2827,7 @@ stateDiagram-v2
 | Blocks | SRV-063, SRV-064 |
 | Est. effort | 3-5h |
 
-**Context:** Task 062 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 062 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "POST /v1/payments create intent" per the architecture defined in Sections 3–6 of this document.
 
@@ -2859,7 +2859,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 063 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 063 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Validate sender distinct from receiver and hints" per the architecture defined in Sections 3–6 of this document.
 
@@ -2891,7 +2891,7 @@ stateDiagram-v2
 | Blocks | SRV-065 |
 | Est. effort | 3-5h |
 
-**Context:** Task 064 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 064 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Transition CREATED to AUTHORIZED" per the architecture defined in Sections 3–6 of this document.
 
@@ -2955,7 +2955,7 @@ stateDiagram-v2
 | Blocks | SRV-067 |
 | Est. effort | 3-5h |
 
-**Context:** Task 066 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 066 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Transition AUTHORIZED to SUBMITTED" per the architecture defined in Sections 3–6 of this document.
 
@@ -2987,7 +2987,7 @@ stateDiagram-v2
 | Blocks | SRV-068 |
 | Est. effort | 3-5h |
 
-**Context:** Task 067 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 067 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Event listener polling confirmation" per the architecture defined in Sections 3–6 of this document.
 
@@ -3019,7 +3019,7 @@ stateDiagram-v2
 | Blocks | SRV-069, SRV-070 |
 | Est. effort | 3-5h |
 
-**Context:** Task 068 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 068 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Transition SUBMITTED to CONFIRMED or FAILED" per the architecture defined in Sections 3–6 of this document.
 
@@ -3051,7 +3051,7 @@ stateDiagram-v2
 | Blocks | SRV-073 |
 | Est. effort | 3-5h |
 
-**Context:** Task 069 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 069 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GET /v1/payments/:id full status" per the architecture defined in Sections 3–6 of this document.
 
@@ -3083,7 +3083,7 @@ stateDiagram-v2
 | Blocks | SRV-075 |
 | Est. effort | 3-5h |
 
-**Context:** Task 070 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 070 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Event payment.confirmed index Transaction" per the architecture defined in Sections 3–6 of this document.
 
@@ -3115,7 +3115,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 071 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 071 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Idempotency on submit same paymentId" per the architecture defined in Sections 3–6 of this document.
 
@@ -3147,7 +3147,7 @@ stateDiagram-v2
 | Blocks | SRV-068 |
 | Est. effort | 3-5h |
 
-**Context:** Task 072 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 072 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Timeout FAILED if no submit in time" per the architecture defined in Sections 3–6 of this document.
 
@@ -3179,7 +3179,7 @@ stateDiagram-v2
 | Blocks | SRV-098 |
 | Est. effort | 3-5h |
 
-**Context:** Task 073 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 073 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "E2E full flow with mock Stellar" per the architecture defined in Sections 3–6 of this document.
 
@@ -3211,7 +3211,7 @@ stateDiagram-v2
 | Blocks | SRV-094 |
 | Est. effort | 3-5h |
 
-**Context:** Task 074 of phase 6, epic EPIC-04. Part of the Ding Payments server MVP build plan.
+**Context:** Task 074 of phase 6, epic EPIC-04. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Complete Swagger payments module" per the architecture defined in Sections 3–6 of this document.
 
@@ -3248,7 +3248,7 @@ stateDiagram-v2
 | Blocks | SRV-076, SRV-080 |
 | Est. effort | 3-5h |
 
-**Context:** Task 075 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 075 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "TransactionsModule GET /v1/transactions" per the architecture defined in Sections 3–6 of this document.
 
@@ -3280,7 +3280,7 @@ stateDiagram-v2
 | Blocks | SRV-080 |
 | Est. effort | 3-5h |
 
-**Context:** Task 076 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 076 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "History filters asset date role status" per the architecture defined in Sections 3–6 of this document.
 
@@ -3312,7 +3312,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 077 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 077 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Reconciliation sync from Horizon" per the architecture defined in Sections 3–6 of this document.
 
@@ -3344,7 +3344,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 078 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 078 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Response DTO memo counterparty explorer link" per the architecture defined in Sections 3–6 of this document.
 
@@ -3376,7 +3376,7 @@ stateDiagram-v2
 | Blocks | SRV-076 |
 | Est. effort | 3-5h |
 
-**Context:** Task 079 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 079 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "DB indexes for history queries" per the architecture defined in Sections 3–6 of this document.
 
@@ -3408,7 +3408,7 @@ stateDiagram-v2
 | Blocks | SRV-097 |
 | Est. effort | 3-5h |
 
-**Context:** Task 080 of phase 7, epic EPIC-06. Part of the Ding Payments server MVP build plan.
+**Context:** Task 080 of phase 7, epic EPIC-06. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Tests list and filters transactions" per the architecture defined in Sections 3–6 of this document.
 
@@ -3445,7 +3445,7 @@ stateDiagram-v2
 | Blocks | SRV-100 |
 | Est. effort | 3-5h |
 
-**Context:** Task 081 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 081 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Rate limiting ThrottlerModule per endpoint" per the architecture defined in Sections 3–6 of this document.
 
@@ -3477,7 +3477,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 082 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 082 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Validate 5 min clock skew on requests" per the architecture defined in Sections 3–6 of this document.
 
@@ -3509,7 +3509,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 083 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 083 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "NFC expiration policy default 30s" per the architecture defined in Sections 3–6 of this document.
 
@@ -3541,7 +3541,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 084 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 084 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Sanitize outputs without internal leak" per the architecture defined in Sections 3–6 of this document.
 
@@ -3573,7 +3573,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 085 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 085 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "AuditLog table and critical events" per the architecture defined in Sections 3–6 of this document.
 
@@ -3605,7 +3605,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 086 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 086 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Restrictive CORS per environment" per the architecture defined in Sections 3–6 of this document.
 
@@ -3637,7 +3637,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 087 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 087 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Request ID correlation X-Request-Id" per the architecture defined in Sections 3–6 of this document.
 
@@ -3669,7 +3669,7 @@ stateDiagram-v2
 | Blocks | SRV-065 |
 | Est. effort | 3-5h |
 
-**Context:** Task 088 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 088 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Validate wallet JWT matches signer XDR" per the architecture defined in Sections 3–6 of this document.
 
@@ -3701,7 +3701,7 @@ stateDiagram-v2
 | Blocks | SRV-065 |
 | Est. effort | 3-5h |
 
-**Context:** Task 089 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 089 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Replay protection stellarTxHash unique" per the architecture defined in Sections 3–6 of this document.
 
@@ -3733,7 +3733,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 090 of phase 8, epic EPIC-07. Part of the Ding Payments server MVP build plan.
+**Context:** Task 090 of phase 8, epic EPIC-07. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Documented security review checklist" per the architecture defined in Sections 3–6 of this document.
 
@@ -3770,7 +3770,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 091 of phase 9, epic EPIC-08. Part of the Ding Payments server MVP build plan.
+**Context:** Task 091 of phase 9, epic EPIC-08. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Structured logging Pino or Nest Logger" per the architecture defined in Sections 3–6 of this document.
 
@@ -3802,7 +3802,7 @@ stateDiagram-v2
 | Blocks | SRV-103 |
 | Est. effort | 3-5h |
 
-**Context:** Task 092 of phase 9, epic EPIC-08. Part of the Ding Payments server MVP build plan.
+**Context:** Task 092 of phase 9, epic EPIC-08. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GET /health readiness and liveness" per the architecture defined in Sections 3–6 of this document.
 
@@ -3834,7 +3834,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 093 of phase 9, epic EPIC-08. Part of the Ding Payments server MVP build plan.
+**Context:** Task 093 of phase 9, epic EPIC-08. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Payment success rate metrics endpoint" per the architecture defined in Sections 3–6 of this document.
 
@@ -3866,7 +3866,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 094 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 094 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Swagger tags and complete examples" per the architecture defined in Sections 3–6 of this document.
 
@@ -3898,7 +3898,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 095 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 095 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "docs/ARCHITECTURE.md server" per the architecture defined in Sections 3–6 of this document.
 
@@ -3930,7 +3930,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 096 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 096 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "docs/API.md endpoint reference" per the architecture defined in Sections 3–6 of this document.
 
@@ -3962,7 +3962,7 @@ stateDiagram-v2
 | Blocks | SRV-098 |
 | Est. effort | 3-5h |
 
-**Context:** Task 097 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 097 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "80% test coverage critical modules" per the architecture defined in Sections 3–6 of this document.
 
@@ -3994,7 +3994,7 @@ stateDiagram-v2
 | Blocks | SRV-106 |
 | Est. effort | 3-5h |
 
-**Context:** Task 098 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 098 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Complete E2E suite in CI" per the architecture defined in Sections 3–6 of this document.
 
@@ -4026,7 +4026,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 099 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 099 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Contract tests payment-request.v1" per the architecture defined in Sections 3–6 of this document.
 
@@ -4058,7 +4058,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 100 of phase 9, epic EPIC-09. Part of the Ding Payments server MVP build plan.
+**Context:** Task 100 of phase 9, epic EPIC-09. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Basic load test validate endpoint" per the architecture defined in Sections 3–6 of this document.
 
@@ -4095,7 +4095,7 @@ stateDiagram-v2
 | Blocks | SRV-103 |
 | Est. effort | 3-5h |
 
-**Context:** Task 101 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 101 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Multi-stage production Dockerfile" per the architecture defined in Sections 3–6 of this document.
 
@@ -4127,7 +4127,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 102 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 102 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "docker-compose dev local postgres" per the architecture defined in Sections 3–6 of this document.
 
@@ -4159,7 +4159,7 @@ stateDiagram-v2
 | Blocks | SRV-104 |
 | Est. effort | 3-5h |
 
-**Context:** Task 103 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 103 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "GitHub Actions deploy staging" per the architecture defined in Sections 3–6 of this document.
 
@@ -4191,7 +4191,7 @@ stateDiagram-v2
 | Blocks | SRV-106 |
 | Est. effort | 3-5h |
 
-**Context:** Task 104 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 104 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "prisma migrate deploy in CI/CD" per the architecture defined in Sections 3–6 of this document.
 
@@ -4223,7 +4223,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 105 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 105 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Operational runbook Stellar down" per the architecture defined in Sections 3–6 of this document.
 
@@ -4255,7 +4255,7 @@ stateDiagram-v2
 | Blocks | — |
 | Est. effort | 3-5h |
 
-**Context:** Task 106 of phase 10, epic EPIC-10. Part of the Ding Payments server MVP build plan.
+**Context:** Task 106 of phase 10, epic EPIC-10. Part of the Vela server MVP build plan.
 
 **Objective:** Complete "Server MVP release checklist" per the architecture defined in Sections 3–6 of this document.
 
@@ -4279,7 +4279,7 @@ stateDiagram-v2
 
 **SRV-001 — README**
 - Modify: `ding-server/README.md`
-- Include: Ding Payments description, prerequisites (Node 20+, Supabase), setup (`cp .env.example .env`), scripts, module structure, link to docs/
+- Include: Vela description, prerequisites (Node 20+, Supabase), setup (`cp .env.example .env`), scripts, module structure, link to docs/
 
 **SRV-002 — .env.example**
 - Create: `ding-server/.env.example`
@@ -4859,4 +4859,4 @@ git diff 5d4e9de^ 5d4e9de --stat
 
 ---
 
-*End of Server Build Plan — Ding Payments v1.0*
+*End of Server Build Plan — Vela v1.0*

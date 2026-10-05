@@ -3,7 +3,7 @@
 ## When to use transactions
 
 Use a Prisma transaction whenever two or more writes must succeed or fail together.
-Critical cases in Ding Payments:
+Critical cases in Vela:
 
 | Operation                        | Tables involved                                      |
 | -------------------------------- | ---------------------------------------------------- |

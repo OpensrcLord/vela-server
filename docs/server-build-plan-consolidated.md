@@ -1,4 +1,4 @@
-# Ding Payments — Server Build Plan (Consolidated)
+# Vela — Server Build Plan (Consolidated)
 
 > **Executive backlog for `ding-server/`** — 20 deliverables across 4 stages.
 >
@@ -108,7 +108,7 @@ Success means: Repo bootstrapped with documented setup.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -127,7 +127,7 @@ Ding Payments is a self-custodial Stellar P2P app: the server validates NFC paym
 
 | SRV-ID | Title | Key deliverable |
 |--------|-------|-----------------|
-| SRV-001 | Update README with Ding Payments branding | Update README with Ding Payments branding |
+| SRV-001 | Update README with Vela branding | Update README with Vela branding |
 | SRV-002 | Create .env.example with all variables | Create .env.example with all variables |
 | SRV-003 | Install core server dependencies | Install core server dependencies |
 
@@ -136,7 +136,7 @@ Ding Payments is a self-custodial Stellar P2P app: the server validates NFC paym
 - All atomic tasks SRV-001, SRV-002, SRV-003 as specified in [server-build-plan.md](./server-build-plan.md)
 - NestJS 11 patterns: modules, providers, DTOs with class-validator, Swagger decorators where applicable
 - Unit and/or E2E tests for new behavior; keep CI green (`ci-server.yml`)
-- Ding Payments README with setup from Appendix C commands
+- Vela README with setup from Appendix C commands
 - Complete `.env.example` matching ConfigModule validation
 
 **Scope — Out**
@@ -201,7 +201,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -225,7 +225,7 @@ THROTTLE_LIMIT=100
 
 **Implementation guide**
 
-1. Implement **SRV-001** — Update README with Ding Payments branding; cross-check Section 8 in server-build-plan.md for files and snippets.
+1. Implement **SRV-001** — Update README with Vela branding; cross-check Section 8 in server-build-plan.md for files and snippets.
 2. Implement **SRV-002** — Create .env.example with all variables; cross-check Section 8 in server-build-plan.md for files and snippets.
 3. Implement **SRV-003** — Install core server dependencies; cross-check Section 8 in server-build-plan.md for files and snippets.
 4. Run `npm run lint` and fix any new violations.
@@ -238,7 +238,7 @@ THROTTLE_LIMIT=100
 
 **Acceptance criteria**
 
-- [ ] **SRV-001** — Update README with Ding Payments branding: acceptance criteria in server-build-plan.md satisfied
+- [ ] **SRV-001** — Update README with Vela branding: acceptance criteria in server-build-plan.md satisfied
 - [ ] **SRV-002** — Create .env.example with all variables: acceptance criteria in server-build-plan.md satisfied
 - [ ] **SRV-003** — Install core server dependencies: acceptance criteria in server-build-plan.md satisfied
 - [ ] CI workflow passes lint, build, and test jobs
@@ -313,7 +313,7 @@ Success means: Server boots with validated config and uniform errors.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -405,7 +405,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -515,7 +515,7 @@ Success means: Flat module layout and agent rules aligned.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -606,7 +606,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -714,7 +714,7 @@ Success means: User/Wallet schema migrated.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -809,7 +809,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -931,7 +931,7 @@ Success means: Full domain schema and seed.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -1028,7 +1028,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments
@@ -1165,7 +1165,7 @@ Success means: JWT guard on protected routes.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -1333,7 +1333,7 @@ Success means: Profile and wallet linking live.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -1527,7 +1527,7 @@ Success means: Public validate endpoint.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -1861,7 +1861,7 @@ Success means: Persist + anti-replay.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -2193,7 +2193,7 @@ Success means: CREATED → AUTHORIZED.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -2477,7 +2477,7 @@ Success means: WebAuthn production-ready.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -2639,7 +2639,7 @@ Success means: StellarService pipeline.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -2813,7 +2813,7 @@ Success means: Simulate + health endpoints.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -2983,7 +2983,7 @@ Success means: Submit relay on testnet.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -3337,7 +3337,7 @@ Success means: Terminal payment states.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -3635,7 +3635,7 @@ Success means: E2E green in CI.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -3910,7 +3910,7 @@ Success means: History queries optimized.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -4076,7 +4076,7 @@ Success means: Hardened payment surface.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -4297,7 +4297,7 @@ Success means: Observability + docs.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -4480,7 +4480,7 @@ Success means: Staging deploy.
 
 **Product context**
 
-Ding Payments is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
+Vela is a self-custodial Stellar P2P app: the server validates NFC payment requests, enforces hybrid Supabase + WebAuthn authorization, relays signed XDR to Horizon, and indexes history.
 
 **User stories**
 
@@ -4781,7 +4781,7 @@ STELLAR_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 
 # WebAuthn
 WEBAUTHN_RP_ID=localhost
-WEBAUTHN_RP_NAME=Ding Payments
+WEBAUTHN_RP_NAME=Vela
 WEBAUTHN_ORIGIN=http://localhost:8081
 
 # Payments

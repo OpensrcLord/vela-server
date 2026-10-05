@@ -21,7 +21,7 @@ export const CHALLENGE_TTL_MS = 5 * 60 * 1000;
 /**
  * Per-device credentials policy (SRV-046).
  *
- * Ding is a payments app: a passkey is the only thing standing between an
+ * Vela is a payments app: a passkey is the only thing standing between an
  * authenticated Supabase session and moving funds. Two rules follow from that:
  *
  * 1. Bound enrolment — a user can register at most this many passkeys. This
@@ -35,7 +35,7 @@ export const CHALLENGE_TTL_MS = 5 * 60 * 1000;
 export const MAX_CREDENTIALS_PER_USER = 5;
 
 /**
- * Ding error codes surfaced by the WebAuthn flow. Consumed by the global
+ * Vela error codes surfaced by the WebAuthn flow. Consumed by the global
  * HttpExceptionFilter as the `code` field of the error envelope.
  */
 export const WEBAUTHN_ERROR = {

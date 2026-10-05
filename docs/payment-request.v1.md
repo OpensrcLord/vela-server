@@ -1,6 +1,6 @@
 # payment-request.v1
 
-`payment-request.v1` is the canonical NFC payment request contract for Ding
+`payment-request.v1` is the canonical NFC payment request contract for Vela
 mobile and server flows. Producers must emit this exact shape, and consumers
 must reject invalid payloads with deterministic error codes.
 

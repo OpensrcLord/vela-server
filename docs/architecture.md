@@ -1,12 +1,12 @@
-# Architecture — Hybrid Auth (Supabase + WebAuthn)
+# Vela Architecture — Hybrid Auth (Supabase + WebAuthn)
 
-> Server-side reference for how Ding Payments authenticates a *session* and
+> Server-side reference for how Vela authenticates a *session* and
 > authorizes a *payment*. Covers SRV-041–048 (S10/S11). For the full system
 > design, data model, and API surface, see [server-build-plan.md](./server-build-plan.md).
 
 ## 1. Why two auth mechanisms
 
-Ding is self-custodial: the server never holds a user's Stellar private key.
+Vela is self-custodial: the server never holds a user's Stellar private key.
 It still needs to be sure that (a) a request comes from a logged-in user, and
 (b) a *payment* is being approved by the physical owner of that user's phone,
 not just anyone with a valid session token. One mechanism handles each job:
@@ -26,7 +26,7 @@ funds — that always requires a fresh, payment-scoped passkey assertion.
 - The guard validates the bearer token against `SUPABASE_JWT_SECRET` and
   attaches `{ supabaseUserId, email }` to `request.user`, retrievable with the
   `@CurrentUser()` decorator.
-- Each protected service resolves the *internal* Ding user from
+- Each protected service resolves the *internal* Vela user from
   `authUser.supabaseUserId` via `UsersService.getUserBySupabaseId()` — the
   Supabase ID is never used directly as a foreign key elsewhere.
 - `@Public()` routes: `POST /v1/payment-requests/validate`, `GET /health*`.
@@ -188,4 +188,4 @@ constants in `src/webauthn/webauthn.constants.ts`, not environment variables
   the `payments/:id/authorize` state guards.
 - The real WebAuthn ceremony (browser ↔ authenticator) is out of scope for
   automated tests here; `@simplewebauthn/server`'s own test suite covers the
-  cryptographic verification logic that Ding depends on.
+  cryptographic verification logic that Vela depends on.

@@ -28,7 +28,7 @@
     'Test SDF Network ; September 2015';
   process.env.WEBAUTHN_RP_ID = process.env.WEBAUTHN_RP_ID ?? 'localhost';
   process.env.WEBAUTHN_RP_NAME =
-    process.env.WEBAUTHN_RP_NAME ?? 'Ding Payments';
+    process.env.WEBAUTHN_RP_NAME ?? 'Vela';
   process.env.WEBAUTHN_ORIGIN =
     process.env.WEBAUTHN_ORIGIN ?? 'http://localhost:8081';
   process.env.PAYMENT_SUBMIT_TIMEOUT_MS =

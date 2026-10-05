@@ -1,10 +1,10 @@
-# Ding Payments — Server
+# Vela — Server
 
-Backend API for **Ding Payments**: peer-to-peer NFC payments on the [Stellar](https://stellar.org) network (testnet MVP).
+Backend API for **Vela**: peer-to-peer NFC payments on the [Stellar](https://stellar.org) network (testnet MVP).
 
 The server validates NFC payment requests against the `payment-request.v1` contract, orchestrates the payment lifecycle, relays signed transactions to Stellar, and exposes transaction history.
 
-> **Mobile client:** The Expo app lives in a separate repository — [Ding-Payments/ding-payments](https://github.com/Ding-Payments/ding-payments).
+> **Mobile client:** The Expo app lives in a separate repository — [VelaPayments/ding-payments](https://github.com/VelaPayments/ding-payments).
 
 ## Tech stack
 
@@ -68,7 +68,7 @@ The API is versioned under `/v1`. Swagger UI is available at `/docs` when the se
 Project structure:
 
 ```
-ding-server/
+vela-server/
 ├── prisma/                 # Schema, migrations, seed
 ├── docs/                   # Architecture, build plan, contracts
 ├── src/

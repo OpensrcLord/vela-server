@@ -4,7 +4,7 @@ Backend API for **Vela**: peer-to-peer NFC payments on the [Stellar](https://ste
 
 The server validates NFC payment requests against the `payment-request.v1` contract, orchestrates the payment lifecycle, relays signed transactions to Stellar, and exposes transaction history.
 
-> **Mobile client:** The Expo app lives in a separate repository — [VelaPayments/ding-payments](https://github.com/VelaPayments/ding-payments).
+> **Mobile client:** The Expo app lives in a separate repository — [VelaPayments/vela-payments](https://github.com/VelaPayments/vela-payments).
 
 ## Tech stack
 

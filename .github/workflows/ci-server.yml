@@ -13,6 +13,10 @@ on:
       - 'nest-cli.json'
       - 'eslint.config.mjs'
       - '.prettierrc'
+      - '.github/workflows/ci-server.yml'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
   push:
     branches: [main, develop]
     paths:
@@ -26,6 +30,10 @@ on:
       - 'nest-cli.json'
       - 'eslint.config.mjs'
       - '.prettierrc'
+      - '.github/workflows/ci-server.yml'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
 
 jobs:
   server:

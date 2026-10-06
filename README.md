@@ -2,11 +2,36 @@
 
 # Vela — Server
 
-Backend API for **Vela**: peer-to-peer NFC payments on the [Stellar](https://stellar.org) network (testnet MVP).
+Backend for **Vela**, an open-source contactless-payment prototype built around [Stellar](https://stellar.org) testnet.
 
-The server validates NFC payment requests against the `payment-request.v1` contract, orchestrates the payment lifecycle, relays signed transactions to Stellar, and exposes transaction history.
+The backend contains payment-request validation and persistence, passkey-based payment authorization, and a Stellar integration service for transaction building, submission and confirmation polling. Connecting these services into a complete client-to-network payment flow remains active development work.
 
 > **Mobile client:** The Expo app lives in a separate repository — [VelaPayments/vela-payments](https://github.com/VelaPayments/vela-payments).
+
+## How Vela uses Stellar
+
+Stellar is the intended settlement network for Vela payments. The product goal is a short path from sharing a payment request to approving and confirming an XLM or issued-asset transfer. NFC carries the request between devices; funds move through a signed Stellar transaction and network confirmation.
+
+This repository implements the server-side building blocks with `@stellar/stellar-sdk`:
+
+| Capability                  | Implementation                                                                                                                            | Role in Vela                                                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Network access              | [StellarModule](src/stellar/stellar.module.ts)                                                                                            | Configures Horizon and Stellar RPC clients, the network passphrase and the USDC issuer                               |
+| Accounts and assets         | [StellarService](src/stellar/stellar.service.ts) — `getAccount`, `resolveAsset`                                                           | Loads source accounts; resolves native XLM or USDC by its configured issuer                                          |
+| Payment construction        | `StellarService.buildPaymentTransaction`                                                                                                  | Builds an unsigned `Operation.payment` transaction with fee, network passphrase, optional memo and a bounded timeout |
+| Submission and confirmation | `StellarService.submitTransaction`, `pollTransactionStatus`                                                                               | Accepts signed XDR, submits through Horizon and polls for an ingested outcome with bounded retries                   |
+| RPC support                 | `StellarService.getHealth`, `simulateTransaction`                                                                                         | Checks provider health and exposes transaction simulation at the service level                                       |
+| Payment requests            | [Contract validator](src/contracts/payment-request.v1.ts) and [request service](src/modules/payment-requests/payment-requests.service.ts) | Validates supported assets, amount strings, recipient format and timestamps before persistence                       |
+
+The transaction helpers have mocked regression coverage in [stellar.service.spec.ts](src/stellar/stellar.service.spec.ts). They are not yet exposed as a complete public settlement API, and a completed real-device transfer has not been demonstrated. WebAuthn authorizes an application payment action; Stellar transaction signatures and network confirmation remain separate parts of the intended flow.
+
+### Work that advances the Stellar integration
+
+- [Align the client/server payment payload](https://github.com/VelaPayments/vela-server/issues/3) so NFC requests can pass server validation consistently.
+- [Strengthen memo byte limits and confirmation polling coverage](https://github.com/VelaPayments/vela-server/issues/52).
+- [Protect authorization failure ordering](https://github.com/VelaPayments/vela-server/issues/64) before connecting authorization to submission.
+
+The current prototype targets Stellar testnet. XLM is represented as the native asset; issued assets are identified by both code and issuer, so the USDC issuer must match the selected network. See [Stellar's asset model](https://developers.stellar.org/docs/learn/fundamentals/stellar-data-structures/assets).
 
 ## Project status
 
@@ -101,8 +126,7 @@ vela-server/
 │   └── modules/
 │       ├── users/
 │       ├── payment-requests/
-│       ├── payments/
-│       └── transactions/
+│       └── payments/
 └── test/                   # E2E tests
 ```
 
